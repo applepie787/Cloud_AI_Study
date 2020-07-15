@@ -1,34 +1,34 @@
-#도커에서 이미지 설치
+# 도커에서 이미지 설치
 Docker pull (이미지)
-#실행중인 docker container 확인
+# 실행중인 docker container 확인
 Docker ps
-#실행중인 것과 stop 된 container 확인
+# 실행중인 것과 stop 된 container 확인
 Docker ps –a (-all)
-#container stop
+# container stop
 Docker strop (name)
-#stop 된 컨테이너 다시 시작
+# stop 된 컨테이너 다시 시작
 Docker start (name)
-#container 이름변경
+# container 이름변경
 Docker rename container-name container-rename
 Ex) docker rename webserver web
 Docker ps
-#Ubuntu, centos:7 image download
+# Ubuntu, centos:7 image download
 Docker pull Ubuntu
 Docker pull centos:7  # centos:version(tag)
 
-#image 상세보기 – image config dockerfile 조회
+# image 상세보기 – image config dockerfile 조회
 Docker image inspect (image-name)
-#prune은 사용하지 않는 image들을 한꺼번에 삭제한다.
-#이미지를 특정해서 삭제하려면 rm으로 사용.
-#이미지를 사용하는 container가 있다면, 이미지가 삭제 안된다.
-#Exit 해도 컨테이너가 있다면 컨테이너부터 지워야 한다.
+# prune은 사용하지 않는 image들을 한꺼번에 삭제한다.
+# 이미지를 특정해서 삭제하려면 rm으로 사용.
+# 이미지를 사용하는 container가 있다면, 이미지가 삭제 안된다.
+# Exit 해도 컨테이너가 있다면 컨테이너부터 지워야 한다.
 Docker container(<-생략가능) rm (container_name)
 
-## image 삭제 – image를 사용하는 container가 있을 경우, 사용하는 container 부터 삭제 후 삭제.
+# image 삭제 – image를 사용하는 container가 있을 경우, 사용하는 container 부터 삭제 후 삭제.
 Docker image rm (image_name of image_ID)
 
-#ubuntu, centos:7 container 생성/실행(create/start)
-#centos의 /bin/cal – calender 실행 –it:표준입출력 사용
+# ubuntu, centos:7 container 생성/실행(create/start)
+# centos의 /bin/cal – calender 실행 –it:표준입출력 사용
 docker run -it --name centos_cal centos:7 /bin/cal
 docker ps –a
 docker run –it –name centos_shell centos:7 /bin/bash
@@ -37,7 +37,7 @@ docker run –it –name centos_shell centos:7 /bin/bash
 111 101 101 : -rwxr-xr-x
 (7   5   5 : admin 은 읽고, 쓰고, 실행 가능. 나머지는 쓰기는 불가능)
 수정 하려면 chmod 755 처럼 수정 가능
-#exit된 container를 다시 시작
+# exit된 container를 다시 시작
 Docker start –I (container_name)
 이 상태에서 ctrl + p + q 를 하면 container가 up되어 있는 상태에서 도커로 돌아오게 됨.
 이후 다시 container로 돌아가려면
